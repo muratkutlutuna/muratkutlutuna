@@ -3,7 +3,7 @@ const fetch = require('node-fetch');
 
 // GitHub username and birthdate
 const username = 'muratkutlutuna';
-const birthDate = new Date('1992-10-10');
+const birthDate = new Date('1992-10-22');
 const today = new Date();
 let age = today.getFullYear() - birthDate.getFullYear();
 if (today.getMonth() < birthDate.getMonth() || (today.getMonth() === birthDate.getMonth() && today.getDate() < birthDate.getDate())) {
