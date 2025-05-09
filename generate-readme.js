@@ -1,5 +1,5 @@
-const fs = require('fs');
-const fetch = require('node-fetch');
+import fetch from 'node-fetch'; // Use ES module import
+import fs from 'fs';
 
 // GitHub username and birthdate
 const username = 'muratkutlutuna';
