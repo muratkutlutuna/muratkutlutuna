@@ -1,5 +1,11 @@
-import fetch from 'node-fetch'; // Use ES module import
+import fetch from 'node-fetch';
 import fs from 'fs';
+import { OpenAI } from 'openai';
+
+// Initialize OpenAI with your API key
+const openai = new OpenAI({
+  apiKey: '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', // Replace with your actual OpenAI API key
+});
 
 // GitHub username and birthdate
 const username = 'muratkutlutuna';
@@ -22,6 +28,24 @@ async function fetchLanguages() {
     }
   }
   return languageCount;
+}
+
+// Function to call OpenAI for generating a dynamic career description
+async function generateAIDescription() {
+  const prompt = `
+  You are an AI that generates a personalized professional description based on the user's GitHub profile and programming experience.
+  The user is a Software Developer in Test with expertise in Java, working on a TakeAway project and contributing to a QA team-based product.
+  The user is interested in continuous learning, exploring languages like Java, JavaScript, Python, and frameworks like Spring Boot, React, Node.js, and Django.
+  Their favorite language is Java and they are currently learning Cucumber.
+  Write a brief and engaging description of this user's career, focusing on their skills, experience, and learning path. Keep the tone professional and friendly.
+  `;
+  
+  const response = await openai.chat.completions.create({
+    model: 'gpt-3.5-turbo',
+    messages: [{ role: 'user', content: prompt }],
+  });
+
+  return response.choices[0].message.content;
 }
 
 // AI-driven function to generate a bio section
@@ -47,12 +71,6 @@ ${topLanguages}
 
 #### 🧰 Frameworks & Tools:
 ${frameworkList}
-
-#### 🤖 Career & Learning Journey:
-- I have been working in the IT world since I got the chance, contributing to various projects in the QA and development space.
-- I'm currently working on my own TakeAway project and contributing to a team-based QA test product.
-- My favorite programming language is Java, and I’m currently learning Cucumber.
-- I am continuously expanding my knowledge and skills, particularly in JavaScript frameworks like React and Node.js, and Python web frameworks like Django.
   `;
 }
 
@@ -60,6 +78,7 @@ ${frameworkList}
 (async () => {
   const languages = await fetchLanguages();
   const bio = generateBio(languages);
+  const aiDescription = await generateAIDescription();  // Get AI-generated description
 
   const readme = `
 <h1 align="center">Hi, 👋🏼 I'm Kutlu!</h1>
@@ -73,6 +92,9 @@ ${frameworkList}
 </p>
 
 ${bio}
+
+#### 🤖 Career Overview:
+${aiDescription}  <!-- Insert AI description here -->
 
 ---
 
