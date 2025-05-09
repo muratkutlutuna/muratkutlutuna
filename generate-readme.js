@@ -4,7 +4,7 @@ import { OpenAI } from 'openai';
 
 // Initialize OpenAI with your API key
 const openai = new OpenAI({
-  apiKey: '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', // Replace with your actual OpenAI API key
+  apiKey: process.env.OPENAI_API_KEY, // Replace with your actual OpenAI API key
 });
 
 // GitHub username and birthdate
