@@ -9,8 +9,8 @@ import { analyzeCommitHistory } from './algorithms/analyzeCommitHistory.js';
 import { determineProjectType } from './algorithms/projectType.js';
 import { codeCleanliness } from './algorithms/codeCleanliness.js';
 import { learningImprovement } from './algorithms/learningImprovement.js';
-import { ChatOpenAI } from "langchain/chat_models/openai";
-import { HumanMessage, SystemMessage } from "langchain/schema";
+import { ChatOpenAI } from "@langchain/openai";
+import { HumanMessage, SystemMessage } from "@langchain/core/messages";
 
 // Main repo analysis function
 export function analyzeAllRepos(repoPath, logger = {}) {

@@ -20,7 +20,8 @@
   },
   "homepage": "https://github.com/muratkutlutuna/muratkutlutuna#readme",
   "dependencies": {
-    "langchain": "^0.1.37",
+    "@langchain/openai": "^0.5.10",
+    "langchain": "^0.3.24",
     "node-fetch": "^3.2.3",
     "openai": "^4.0.0",
     "simple-git": "^3.27.0"
