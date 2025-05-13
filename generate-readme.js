@@ -114,7 +114,7 @@ async function main() {
   const repos = await getRepos();
   // Analyze repos, synthesize bio, etc.
   // ...existing code...
-  fs.writeFileSync('README.md', '# Example README\n');
+  // fs.writeFileSync('README.md', '# Example README\n');
 }
 
 main();
