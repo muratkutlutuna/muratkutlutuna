@@ -1,84 +1,100 @@
-import fetch from 'node-fetch'; // Use ES module import
 import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { analyzeAllRepos } from './analyze-repo.js';
 
-// GitHub username and birthdate
-const username = 'muratkutlutuna';
-const birthDate = new Date('1992-10-22');
-const today = new Date();
-let age = today.getFullYear() - birthDate.getFullYear();
-if (today.getMonth() < birthDate.getMonth() || (today.getMonth() === birthDate.getMonth() && today.getDate() < birthDate.getDate())) {
-  age--;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// 1. Find all local repos
+function getLocalRepos(baseDir) {
+  return fs.readdirSync(baseDir)
+    .filter(f => fs.statSync(path.join(baseDir, f)).isDirectory())
+    .filter(f => fs.existsSync(path.join(baseDir, f, '.git')));
 }
 
-// Fetch repositories from GitHub API
-async function fetchLanguages() {
-  const res = await fetch(`https://api.github.com/users/${username}/repos`);
-  const repos = await res.json();
+// 2. Analyze all repos
+const reposDir = __dirname;
+const repoNames = getLocalRepos(reposDir);
+const repoAnalyses = repoNames.map(repo => analyzeAllRepos(path.join(reposDir, repo)));
 
-  const languageCount = {};
-  for (const repo of repos) {
-    if (repo.language) {
-      languageCount[repo.language] = (languageCount[repo.language] || 0) + 1;
+// Function to analyze commit history and generate timeline
+function analyzeTimeline(analyses) {
+  let firstActivity = new Date();
+  const yearlyCommits = {};
+  let totalCommits = 0;
+
+  analyses.forEach(a => {
+    if (a.firstCommit < firstActivity) {
+      firstActivity = a.firstCommit;
+    }
+    totalCommits += a.commits;
+
+    // Aggregate commits per year
+    let year = a.firstCommit.getFullYear();
+    yearlyCommits[year] = (yearlyCommits[year] || 0) + a.commits;
+  });
+
+  // Calculate years active
+  const yearsActive = ((Date.now() - firstActivity.getTime()) / (1000 * 60 * 60 * 24 * 365)).toFixed(1);
+
+  // Find most active year
+  let mostActiveYear = null;
+  let maxCommits = 0;
+  for (const year in yearlyCommits) {
+    if (yearlyCommits[year] > maxCommits) {
+      maxCommits = yearlyCommits[year];
+      mostActiveYear = year;
     }
   }
-  return languageCount;
+
+  return {
+    firstActivity,
+    yearsActive,
+    mostActiveYear,
+    totalCommits
+  };
 }
 
-// AI-driven function to generate a bio section
-function generateBio(languages) {
-  const topLanguages = Object.entries(languages)
-    .sort((a, b) => b[1] - a[1])
-    .map(([lang, count]) => `- ${lang}: ${count} repo(s)`)
-    .join('\n');
+// 3. Synthesize a developer BIO
+function synthesizeBio(analyses) {
+  const timeline = analyzeTimeline(analyses);
 
-  const frameworks = [];
-  if (languages.Java) frameworks.push('Spring Boot, Cucumber');
-  if (languages.JavaScript || languages.TypeScript) frameworks.push('React, Node.js');
-  if (languages.Python) frameworks.push('Django');
-  if (languages.HTML || languages.CSS) frameworks.push('Bootstrap, Tailwind');
+  // Aggregate language usage
+  const languageUsage = {};
+  analyses.forEach(a => {
+    Object.entries(a.languages).forEach(([lang, loc]) => {
+      languageUsage[lang] = (languageUsage[lang] || 0) + loc;
+    });
+  });
 
-  const frameworkList = frameworks.length ? frameworks.join(', ') : 'Various frameworks';
+  // Find most used language
+  const mostUsedLanguage = Object.entries(languageUsage).sort(([, a], [, b]) => b - a)[0]?.[0] || 'code';
+
+  // Aggregate frameworks
+  const frameworks = new Set();
+  analyses.forEach(a => a.frameworks.forEach(fw => frameworks.add(fw)));
+
+  // Aggregate project types
+  const projectTypes = new Set();
+  analyses.forEach(a => projectTypes.add(a.projectType));
 
   return `
-<h2>Tech Experience Summary</h2>
+# Hi, I'm Kutlu 👋🏼
 
-#### 📍 Top Programming Languages:
-${topLanguages}
+> "In the quiet hum of midnight code,
+> I build, I break, I learn, I grow."
 
-#### 🧰 Frameworks & Tools:
-${frameworkList}
+Since **${timeline.firstActivity.toLocaleDateString()}** (**${timeline.yearsActive} years**), I've been on a journey through software, marked by **${timeline.totalCommits} commits**.
+My most active year was **${timeline.mostActiveYear}**, a testament to my dedication.
 
-#### 🤖 Career & Learning Journey:
-- I have been working in the IT world since I got the chance, contributing to various projects in the QA and development space.
-- I'm currently working on my own TakeAway project and contributing to a team-based QA test product.
-- My favorite programming language is Java, and I’m currently learning Cucumber.
-- I am continuously expanding my knowledge and skills, particularly in JavaScript frameworks like React and Node.js, and Python web frameworks like Django.
+My primary tool is **${mostUsedLanguage}**, which I wield to craft ${Array.from(projectTypes).join(', ')}.
+I'm also proficient in frameworks like ${Array.from(frameworks).join(', ')}, each chosen to solve unique challenges.
+
+My journey is not just about lines of code, but about the problems I solve and the knowledge I gain.
   `;
 }
 
-// Main function to generate the README
-(async () => {
-  const languages = await fetchLanguages();
-  const bio = generateBio(languages);
-
-  const readme = `
-<h1 align="center">Hi, 👋🏼 I'm Kutlu!</h1>
-<h3 align="center">Software Developer in Test</h3>
-
-<p align="center">
-  I am a husband, son, videogame player, and automation tester.<br/>
-  I'm ${age} years old and have been working in the IT world since I got the chance.<br/>
-  I’m currently working on my own TakeAway project and contributing to a team-based QA test product.<br/>
-  My favorite programming language is Java, and I’m currently learning Cucumber.<br/>
-</p>
-
-${bio}
-
----
-
-_Last updated automatically every week by GitHub Actions._
-`;
-
-  // Write the new README
-  fs.writeFileSync('README.md', readme.trim());
-})();
+// 4. Write README.md
+const bio = synthesizeBio(repoAnalyses);
+fs.writeFileSync(path.join(__dirname, 'README.md'), bio.trim());

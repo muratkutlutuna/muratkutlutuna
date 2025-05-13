@@ -1,5 +1,12 @@
-<h1 align="center">Hi, 👋🏼 I'am Kutlu!</h1>
+# Hi, I'm Kutlu 👋🏼
 
-<h3 align="center">Software Developer in Test</h3>
+> "In the quiet hum of midnight code,
+> I build, I break, I learn, I grow."
 
-<p align="center">I'am a husband, son, videogame player, automation tester. I'am 30 years old, working in IT world since I had got to chance, workin on my own TakeAway project, work with my team on test product as a QA Tester. My favorite programing language is Java. Now I learn cucumber.</p>
+Since **5/13/2025** (**0.0 years**), I've been on a journey through software, marked by **0 commits**.
+My most active year was **null**, a testament to my dedication.
+
+My primary tool is **code**, which I wield to craft .
+I'm also proficient in frameworks like , each chosen to solve unique challenges.
+
+My journey is not just about lines of code, but about the problems I solve and the knowledge I gain.
