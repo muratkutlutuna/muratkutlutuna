@@ -1,8 +1,10 @@
 import fs from 'fs';
 import path from 'path';
+import os from 'os';
 import { fileURLToPath } from 'url';
 import { analyzeAllRepos } from './analyze-repo.js';
 import fetch from 'node-fetch';
+import simpleGit from 'simple-git';
 
 // --- Logger Setup ---
 const logFilePath = path.join(process.cwd(), 'process.log');
@@ -28,26 +30,51 @@ const __dirname = path.dirname(__filename);
 const username = 'muratkutlutuna';
 const token = process.env.GITHUB_TOKEN;
 
+// Fetch all public repos from GitHub API
 async function getRepos() {
-  const res = await fetch(`https://api.github.com/users/${username}/repos?per_page=100`, {
-    headers: { Authorization: `token ${token}` }
-  });
-  return res.json();
+  let repos = [];
+  let page = 1;
+  while (true) {
+    const res = await fetch(`https://api.github.com/users/${username}/repos?per_page=100&page=${page}`, {
+      headers: { Authorization: `token ${token}` }
+    });
+    const data = await res.json();
+    if (!Array.isArray(data) || data.length === 0) break;
+    repos = repos.concat(data);
+    page++;
+  }
+  return repos;
 }
 
-// 1. Find all local repos
-function getLocalRepos(baseDir) {
-  return fs.readdirSync(baseDir)
-    .filter(f => fs.statSync(path.join(baseDir, f)).isDirectory())
-    .filter(f => fs.existsSync(path.join(baseDir, f, '.git')));
+// Clone a repo to a temp directory and return the path
+async function cloneRepo(gitUrl, repoName) {
+  const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), `repo-${repoName}-`));
+  const git = simpleGit();
+  await git.clone(gitUrl, tmpDir, ['--depth', '20']); // shallow clone for speed
+  return tmpDir;
 }
 
-// 2. Analyze all repos
-const reposDir = __dirname;
-const repoNames = getLocalRepos(reposDir);
-const repoAnalyses = repoNames.map(repo => analyzeAllRepos(path.join(reposDir, repo)));
-
-log(`Repo analyses:`, repoAnalyses); // Changed from console.log
+// Analyze all remote GitHub repos
+async function analyzeRemoteRepos() {
+  const repos = await getRepos();
+  log(`Fetched ${repos.length} repos from GitHub`);
+  const analyses = [];
+  for (const repo of repos) {
+    try {
+      log(`Cloning ${repo.name}...`);
+      const tmpPath = await cloneRepo(repo.clone_url, repo.name);
+      log(`Analyzing ${repo.name}...`);
+      const analysis = analyzeAllRepos(tmpPath, { log, error });
+      analysis.remoteUrl = repo.html_url;
+      analyses.push(analysis);
+      fs.rmSync(tmpPath, { recursive: true, force: true });
+      log(`Cleaned up ${tmpPath}`);
+    } catch (e) {
+      error(`Failed to analyze ${repo.name}:`, e);
+    }
+  }
+  return analyses;
+}
 
 // Function to analyze commit history and generate timeline
 function analyzeTimeline(analyses) {
@@ -131,14 +158,12 @@ My journey is not just about lines of code, but about the problems I solve and t
 }
 
 // 4. Write README.md
-const bio = synthesizeBio(repoAnalyses);
-fs.writeFileSync(path.join(__dirname, 'README.md'), bio.trim());
-
 async function main() {
   try {
-    const repos = await getRepos();
-    // ...existing code...
-    // fs.writeFileSync('README.md', '# Example README\n');
+    const repoAnalyses = await analyzeRemoteRepos();
+    log(`Repo analyses:`, repoAnalyses);
+    const bio = synthesizeBio(repoAnalyses);
+    fs.writeFileSync(path.join(__dirname, 'README.md'), bio.trim());
   } catch (e) {
     error('Error in main:', e);
   }
