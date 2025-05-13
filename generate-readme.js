@@ -4,11 +4,29 @@ import { fileURLToPath } from 'url';
 import { analyzeAllRepos } from './analyze-repo.js';
 import fetch from 'node-fetch';
 
+// --- Logger Setup ---
+const logFilePath = path.join(process.cwd(), 'process.log');
+function logToFile(...args) {
+  const msg = args.map(a => (typeof a === 'object' ? JSON.stringify(a) : String(a))).join(' ');
+  fs.appendFileSync(logFilePath, `[${new Date().toISOString()}] ${msg}\n`);
+}
+function log(...args) {
+  logToFile(...args);
+  // Optionally, also print to console:
+  // console.log(...args);
+}
+function error(...args) {
+  logToFile('ERROR:', ...args);
+  // Optionally, also print to console:
+  // console.error(...args);
+}
+// --- End Logger Setup ---
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const username = 'muratkutlutuna';
-const token = process.env.PERSONAL_GITHUB_TOKEN;
+const token = process.env.GITHUB_TOKEN;
 
 async function getRepos() {
   const res = await fetch(`https://api.github.com/users/${username}/repos?per_page=100`, {
@@ -28,6 +46,8 @@ function getLocalRepos(baseDir) {
 const reposDir = __dirname;
 const repoNames = getLocalRepos(reposDir);
 const repoAnalyses = repoNames.map(repo => analyzeAllRepos(path.join(reposDir, repo)));
+
+log(`Repo analyses:`, repoAnalyses); // Changed from console.log
 
 // Function to analyze commit history and generate timeline
 function analyzeTimeline(analyses) {
@@ -59,12 +79,16 @@ function analyzeTimeline(analyses) {
     }
   }
 
-  return {
+  const timeline = {
     firstActivity,
     yearsActive,
     mostActiveYear,
     totalCommits
   };
+
+  log(`Timeline:`, timeline); // Changed from console.log
+
+  return timeline;
 }
 
 // 3. Synthesize a developer BIO
@@ -111,10 +135,13 @@ const bio = synthesizeBio(repoAnalyses);
 fs.writeFileSync(path.join(__dirname, 'README.md'), bio.trim());
 
 async function main() {
-  const repos = await getRepos();
-  // Analyze repos, synthesize bio, etc.
-  // ...existing code...
-  // fs.writeFileSync('README.md', '# Example README\n');
+  try {
+    const repos = await getRepos();
+    // ...existing code...
+    // fs.writeFileSync('README.md', '# Example README\n');
+  } catch (e) {
+    error('Error in main:', e);
+  }
 }
 
 main();

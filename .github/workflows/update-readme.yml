@@ -21,7 +21,7 @@ jobs:
 
       - name: Run README generator
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
         run: node generate-readme.js
 
       - name: Commit and push changes
