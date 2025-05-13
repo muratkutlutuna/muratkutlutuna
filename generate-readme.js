@@ -2,9 +2,20 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { analyzeAllRepos } from './analyze-repo.js';
+import fetch from 'node-fetch';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+const username = 'muratkutlutuna';
+const token = process.env.PERSONAL_GITHUB_TOKEN;
+
+async function getRepos() {
+  const res = await fetch(`https://api.github.com/users/${username}/repos?per_page=100`, {
+    headers: { Authorization: `token ${token}` }
+  });
+  return res.json();
+}
 
 // 1. Find all local repos
 function getLocalRepos(baseDir) {
@@ -98,3 +109,12 @@ My journey is not just about lines of code, but about the problems I solve and t
 // 4. Write README.md
 const bio = synthesizeBio(repoAnalyses);
 fs.writeFileSync(path.join(__dirname, 'README.md'), bio.trim());
+
+async function main() {
+  const repos = await getRepos();
+  // Analyze repos, synthesize bio, etc.
+  // ...existing code...
+  fs.writeFileSync('README.md', '# Example README\n');
+}
+
+main();
