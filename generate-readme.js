@@ -18,7 +18,16 @@ function log(...args) {
   // console.log(...args);
 }
 function error(...args) {
-  logToFile('ERROR:', ...args);
+  // Improved error logging
+  for (const arg of args) {
+    if (arg instanceof Error) {
+      logToFile('ERROR:', arg.stack || arg.message || arg);
+    } else if (typeof arg === 'object') {
+      logToFile('ERROR:', JSON.stringify(arg));
+    } else {
+      logToFile('ERROR:', arg);
+    }
+  }
   // Optionally, also print to console:
   // console.error(...args);
 }
@@ -29,6 +38,11 @@ const __dirname = path.dirname(__filename);
 
 const username = 'muratkutlutuna';
 const token = process.env.GITHUB_TOKEN;
+
+if (!token) {
+  error('GITHUB_TOKEN environment variable is not set. Exiting.');
+  process.exit(1);
+}
 
 // This is where you would retrieve the prompt from GitHub Actions secrets
 const aiPrompt = process.env.AI_PROMPT;
@@ -41,6 +55,11 @@ async function getRepos() {
     const res = await fetch(`https://api.github.com/users/${username}/repos?per_page=100&page=${page}`, {
       headers: { Authorization: `token ${token}` }
     });
+    if (!res.ok) {
+      const errText = await res.text();
+      error(`GitHub API error: ${res.status} ${res.statusText} - ${errText}`);
+      throw new Error(`GitHub API error: ${res.status} ${res.statusText}`);
+    }
     const data = await res.json();
     if (!Array.isArray(data) || data.length === 0) break;
     repos = repos.concat(data);
@@ -120,7 +139,7 @@ ${aiBio}
 
     fs.writeFileSync(path.join(__dirname, 'README.md'), readmeContent.trim());
   } catch (e) {
-    error('Error in main:', e);
+    error('Error in main:', e && (e.stack || e.message || e));
   }
 }
 
