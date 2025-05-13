@@ -1,75 +1,48 @@
 import fs from 'fs';
 import path from 'path';
-import { execSync } from 'child_process';
+import { EXT_LANG_MAP } from './data/ext-lang-map.js';
+import { FRAMEWORK_FILES } from './data/framework-files.js';
+import { countLinesAndComments } from './algorithms/countLinesAndComments.js';
+import { detectFrameworks } from './algorithms/detectFrameworks.js';
+import { detectLanguages } from './algorithms/detectLanguages.js';
+import { analyzeCommitHistory } from './algorithms/analyzeCommitHistory.js';
+import { determineProjectType } from './algorithms/projectType.js';
+import { codeCleanliness } from './algorithms/codeCleanliness.js';
+import { learningImprovement } from './algorithms/learningImprovement.js';
+import { ChatOpenAI } from "langchain/chat_models/openai";
+import { HumanMessage, SystemMessage } from "langchain/schema";
 
-// Simple language detection by file extension
-const EXT_LANG_MAP = {
-  '.js': 'JavaScript', '.ts': 'TypeScript', '.java': 'Java', '.py': 'Python',
-  '.rb': 'Ruby', '.go': 'Go', '.cs': 'C#', '.cpp': 'C++', '.c': 'C',
-  '.html': 'HTML', '.css': 'CSS', '.sh': 'Shell', '.md': 'Markdown'
-};
-
-// Framework detection by file presence
-const FRAMEWORK_FILES = {
-  'Spring Boot': ['pom.xml', 'build.gradle'],
-  'React': ['package.json'],
-  'Node.js': ['package.json'],
-  'Django': ['manage.py'],
-  'Cucumber': ['cucumber.js', 'cucumber.yml'],
-  'JUnit': ['pom.xml', 'build.gradle'],
-  'Docker': ['Dockerfile'],
-  'Maven': ['pom.xml'],
-  'Gradle': ['build.gradle'],
-  'Jest': ['jest.config.js'],
-  'Mocha': ['mocha.opts'],
-  'GitHub Actions': ['.github/workflows'],
-  'GitLab CI': ['.gitlab-ci.yml']
-};
-
-// Helper function to count lines of code in a file
-function countLines(filePath, log, error) {
-  try {
-    log?.(`Counting lines in file: ${filePath}`); // Debug log
-    const content = fs.readFileSync(filePath, 'utf-8');
-    return content.split('\n').length;
-  } catch (e) {
-    error?.(`Error reading file: ${filePath}`, e); // Debug log
-    return 0;
-  }
-}
-
+// Main repo analysis function
 export function analyzeAllRepos(repoPath, logger = {}) {
   const log = logger.log || (() => {});
   const error = logger.error || (() => {});
 
-  log(`Analyzing repository at: ${repoPath}`); // Debug log
+  log(`Analyzing repository at: ${repoPath}`);
 
-  // 1. Language detection and LOC count
-  const languages = {};
-  let totalLOC = 0;
+  // Language detection and LOC count
+  const { languages, totalLOC, totalFiles, totalCommentLines } = detectLanguages(repoPath, EXT_LANG_MAP, countLinesAndComments, log, error);
 
-  function walk(dir) {
-    log(`Walking directory: ${dir}`); // Debug log
-    fs.readdirSync(dir).forEach(f => {
-      const full = path.join(dir, f);
-      log(`Checking file: ${full}`); // Debug log
-      if (fs.statSync(full).isDirectory() && !f.startsWith('.')) {
-        walk(full);
-      } else {
-        const ext = path.extname(f);
-        if (EXT_LANG_MAP[ext]) {
-          const lang = EXT_LANG_MAP[ext];
-          const loc = countLines(full, log, error);
-          languages[lang] = (languages[lang] || 0) + loc;
-          totalLOC += loc;
-          log(`Detected language: ${lang}, LOC: ${loc}`); // Debug log
-        }
-      }
-    });
-  }
-  walk(repoPath);
+  // Framework detection
+  const frameworks = detectFrameworks(repoPath, FRAMEWORK_FILES, log);
 
-  log(`Initial languages object:`, languages); // Debug log
+  // Project type
+  const projectType = determineProjectType(repoPath, frameworks);
+
+  // Commit history
+  const { commits, firstCommit, lastCommit, commitMessages } = analyzeCommitHistory(repoPath, log, error);
+
+  // Experience estimation
+  let experienceLevel = 'Beginner';
+  if (totalLOC > 5000 || commits > 100) experienceLevel = 'Intermediate';
+  if (totalLOC > 20000 || commits > 500) experienceLevel = 'Advanced';
+
+  // Code cleanliness
+  const { avgFileLength, commentDensity, codeCleanliness: cleanliness } =
+    codeCleanliness(totalLOC, totalFiles, totalCommentLines);
+
+  // Learning/improvement
+  const { learningLevel, learningScore } =
+    learningImprovement(languages, frameworks, commitMessages, commits);
 
   // Sort languages by LOC
   const sortedLanguages = Object.entries(languages)
@@ -78,65 +51,109 @@ export function analyzeAllRepos(repoPath, logger = {}) {
       obj[key] = value;
       return obj;
     }, {});
-  log(`Sorted languages:`, sortedLanguages); // Debug log
-
-  // 2. Framework detection
-  const frameworks = [];
-  Object.entries(FRAMEWORK_FILES).forEach(([fw, files]) => {
-    if (files.some(f => {
-          const filePath = path.join(repoPath, f);
-          const exists = fs.existsSync(filePath) || fs.existsSync(path.join(repoPath, ...f.split('/')));
-          log(`Checking for framework ${fw} at ${filePath}: ${exists}`); // Debug log
-          return exists;
-        })) {
-      frameworks.push(fw);
-      log(`Detected framework: ${fw}`); // Debug log
-    }
-  });
-
-  log(`Detected frameworks:`, frameworks); // Debug log
-
-  // 3. Project type (more comprehensive)
-  let projectType = 'Unknown';
-  if (frameworks.includes('React') || frameworks.includes('Django')) projectType = 'Web App';
-  else if (frameworks.includes('Cucumber') || frameworks.includes('JUnit')) projectType = 'Test Framework';
-  else if (frameworks.includes('Node.js')) projectType = 'CLI Tool';
-  if (fs.existsSync(path.join(repoPath, 'Dockerfile'))) projectType = 'Containerized App';
-  if (fs.existsSync(path.join(repoPath, '.github/workflows'))) projectType = 'CI/CD Pipeline';
-  log(`Project type: ${projectType}`); // Debug log
-
-  // 4. Commit history
-  let commits = 0, firstCommit = new Date(), lastCommit = new Date(0);
-  try {
-    const logArr = execSync('git log --pretty=format:"%ct"', { cwd: repoPath }).toString().split('\n').map(Number);
-    commits = logArr.length;
-    if (logArr.length) {
-      firstCommit = new Date(logArr[logArr.length - 1] * 1000);
-      lastCommit = new Date(logArr[0] * 1000);
-    }
-    log(`Commit history: ${commits} commits, First: ${firstCommit}, Last: ${lastCommit}`); // Debug log
-  } catch (e) {
-    error(`Error fetching commit history for: ${repoPath}`, e); // Debug log
-  }
-
-  // 5. Experience estimation (very basic)
-  log(`totalLOC: ${totalLOC}, commits: ${commits}`); // Debug log
-  let experienceLevel = 'Beginner';
-  if (totalLOC > 5000 || commits > 100) experienceLevel = 'Intermediate';
-  if (totalLOC > 20000 || commits > 500) experienceLevel = 'Advanced';
-  log(`Experience level: ${experienceLevel}`); // Debug log
 
   return {
     name: path.basename(repoPath),
-    languages: sortedLanguages, // Use sorted languages
+    languages: sortedLanguages,
     frameworks,
     projectType,
     commits,
     firstCommit,
     lastCommit,
     experienceLevel,
-    totalLOC
+    totalLOC,
+    codeCleanliness: cleanliness,
+    avgFileLength,
+    commentDensity,
+    learningLevel,
+    learningScore
   };
+}
+
+// Helper: Aggregate all repo analyses for prompt input
+function aggregateRepoData(analyses) {
+  let totalLOC = 0, totalCommits = 0, avgCommentDensity = 0, avgLearningScore = 0;
+  let count = analyses.length;
+  analyses.forEach(a => {
+    totalLOC += a.totalLOC || 0;
+    totalCommits += a.commits || 0;
+    avgCommentDensity += a.commentDensity || 0;
+    avgLearningScore += a.learningScore || 0;
+  });
+  if (count) {
+    avgCommentDensity /= count;
+    avgLearningScore /= count;
+  }
+  return { totalLOC, totalCommits, avgCommentDensity, avgLearningScore };
+}
+
+// Helper: Use LangChain to generate an assessment string
+async function generateAssessmentWithLangChain(analyses) {
+  const { totalLOC, totalCommits, avgCommentDensity, avgLearningScore } = aggregateRepoData(analyses);
+  const summary = `
+Total LOC: ${totalLOC}
+Total commits: ${totalCommits}
+Average comment density: ${avgCommentDensity}
+Average learning score: ${avgLearningScore}
+  `.trim();
+
+  const chat = new ChatOpenAI({ temperature: 0.7 });
+  const systemPrompt = `You are an expert developer profile analyst. Given the following repository statistics, write a concise assessment of the developer's experience, code quality, and learning habits.`;
+  const userPrompt = `Repository statistics:\n${summary}\nRespond with a short assessment.`;
+
+  const response = await chat.call([
+    new SystemMessage(systemPrompt),
+    new HumanMessage(userPrompt)
+  ]);
+  return response.content;
+}
+
+// Main function to analyze all remote repos and output a prompt for the bio
+export async function analyzeAndGeneratePromptForBio(repoPaths, logger = {}) {
+  // repoPaths: array of repo paths (local clones)
+  const analyses = repoPaths.map(repoPath => analyzeAllRepos(repoPath, logger));
+  // Use LangChain to generate an assessment
+  const assessment = await generateAssessmentWithLangChain(analyses);
+
+  // Gather summary data for the prompt
+  const languages = new Set();
+  const frameworks = new Set();
+  const projectTypes = new Set();
+  let firstActivity = new Date();
+  let totalCommits = 0;
+  analyses.forEach(a => {
+    Object.keys(a.languages).forEach(l => languages.add(l));
+    a.frameworks.forEach(fw => frameworks.add(fw));
+    projectTypes.add(a.projectType);
+    if (a.firstCommit < firstActivity) firstActivity = a.firstCommit;
+    totalCommits += a.commits;
+  });
+
+  // Compose the prompt for LangChain
+  const chat = new ChatOpenAI({ temperature: 0.7 });
+  const systemPrompt = `You are a creative assistant for writing GitHub profile bios.`;
+  const userPrompt = `
+Write a short, engaging GitHub profile bio for a developer named Kutlu.
+- Coding since ${firstActivity.toLocaleDateString()}.
+- Total commits: ${totalCommits}.
+- Main languages: ${Array.from(languages).join(', ') || 'N/A'}.
+- Frameworks: ${Array.from(frameworks).join(', ') || 'N/A'}.
+- Project types: ${Array.from(projectTypes).join(', ') || 'N/A'}.
+- Assessment: ${assessment}
+Focus on strengths, learning, and growth. Make it concise and inspiring.
+`.trim();
+
+  const response = await chat.call([
+    new SystemMessage(systemPrompt),
+    new HumanMessage(userPrompt)
+  ]);
+  const prompt = response.content;
+
+  // Output the prompt with a marker for GitHub Actions to capture
+  console.log(`::set-output name=ai_prompt::${prompt}`);
+
+  // Optionally, return the prompt for local use
+  return prompt;
 }
 
 // Analyze all repos in a directory (each subdirectory is a repo)
