@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import os from 'os';
 import { fileURLToPath } from 'url';
-import { analyzeAllRepos } from './analyze-repo.js';
+import { analyzeAllRepos, analyzeAndGeneratePromptForBio } from './analyze-repo.js';
 import fetch from 'node-fetch';
 import simpleGit from 'simple-git';
 
@@ -82,8 +82,42 @@ async function analyzeRemoteRepos() {
 // 4. Write README.md
 async function main() {
   try {
-    // analyzeAllRepos now returns the final README content (bio, summary, etc.)
-    const readmeContent = await analyzeAllRepos({ log, error });
+    // 1. Fetch all remote repos and clone/analyze them
+    const repos = await getRepos();
+    log(`Fetched ${repos.length} repos from GitHub`);
+    const repoPaths = [];
+    for (const repo of repos) {
+      try {
+        log(`Cloning ${repo.name}...`);
+        const tmpPath = await cloneRepo(repo.clone_url, repo.name);
+        repoPaths.push(tmpPath);
+      } catch (e) {
+        error(`Failed to clone ${repo.name}:`, e);
+      }
+    }
+
+    // 2. Generate AI-powered bio using all analyzed repos
+    const aiBio = await analyzeAndGeneratePromptForBio(repoPaths, { log, error });
+
+    // 3. Clean up temp directories
+    for (const tmpPath of repoPaths) {
+      try {
+        fs.rmSync(tmpPath, { recursive: true, force: true });
+        log(`Cleaned up ${tmpPath}`);
+      } catch (e) {
+        error(`Failed to clean up ${tmpPath}:`, e);
+      }
+    }
+
+    // 4. Format the README
+    const readmeContent = `# Hi, I'm Kutlu 👋🏼
+
+> "In the quiet hum of midnight code,
+> I build, I break, I learn, I grow."
+
+${aiBio}
+`;
+
     fs.writeFileSync(path.join(__dirname, 'README.md'), readmeContent.trim());
   } catch (e) {
     error('Error in main:', e);
