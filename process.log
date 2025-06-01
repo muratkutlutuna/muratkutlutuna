@@ -8100,3 +8100,445 @@
     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
     at async ChatOpenAI.call (file:///home/runner/work/muratkutlutuna/muratkutlutuna/node_modules/@langchain/core/dist/language_models/chat_models.js:477:24)
     at async generateAssessmentWithLangChain (file:///home/runner/work/muratkutlutuna/muratkutlutuna/analyze-repo.js:104:20)
+[2025-06-01T01:10:45.714Z] Fetched 55 repos from GitHub
+[2025-06-01T01:10:45.715Z] Cloning -team_calculater_...
+[2025-06-01T01:10:45.859Z] Cloning advancedjavabatch134135...
+[2025-06-01T01:10:45.988Z] Cloning algorithms...
+[2025-06-01T01:10:46.153Z] Cloning Batch132...
+[2025-06-01T01:10:46.424Z] Cloning batch44Api...
+[2025-06-01T01:10:46.554Z] Cloning Best-README-Template...
+[2025-06-01T01:10:46.694Z] Cloning Book-AI-Study-Tool...
+[2025-06-01T01:10:46.831Z] Cloning Chess-Table...
+[2025-06-01T01:10:46.949Z] Cloning COHORT12...
+[2025-06-01T01:10:47.720Z] Cloning com.Hotel_Team06...
+[2025-06-01T01:10:47.897Z] Cloning Coursera_CSS3_Week2_Assignment...
+[2025-06-01T01:10:48.034Z] Cloning CSharpProject...
+[2025-06-01T01:10:48.169Z] Cloning designPattern...
+[2025-06-01T01:10:48.334Z] Cloning git-workshop...
+[2025-06-01T01:10:48.463Z] Cloning git-workshop-2...
+[2025-06-01T01:10:48.590Z] Cloning google-play-store-main-page...
+[2025-06-01T01:10:48.735Z] Cloning hibernateLesson...
+[2025-06-01T01:10:48.893Z] Cloning Homework-from-week7...
+[2025-06-01T01:10:49.032Z] Cloning homework-from-week8...
+[2025-06-01T01:10:49.177Z] Cloning homework-from-week9...
+[2025-06-01T01:10:49.332Z] Cloning hrm-smoke-test-suite...
+[2025-06-01T01:10:49.485Z] Cloning IntroToDI...
+[2025-06-01T01:10:49.629Z] Cloning IntroToSpring...
+[2025-06-01T01:10:49.812Z] Cloning JavaCertificationScratchBook...
+[2025-06-01T01:10:49.967Z] Cloning javaCrawling...
+[2025-06-01T01:10:50.203Z] Cloning JavaGameMakingTutorial...
+[2025-06-01T01:10:50.376Z] Cloning Java_Workshop...
+[2025-06-01T01:10:50.677Z] Cloning jsonFileCreation...
+[2025-06-01T01:10:50.818Z] Cloning Lambda...
+[2025-06-01T01:10:51.196Z] Cloning medunnaTeam90...
+[2025-06-01T01:10:51.410Z] Cloning muratkutlutuna...
+[2025-06-01T01:10:52.604Z] Cloning MvcPractice1...
+[2025-06-01T01:10:52.761Z] Cloning MyBasicSite...
+[2025-06-01T01:10:52.891Z] Cloning my_python_project...
+[2025-06-01T01:10:53.028Z] Cloning python_basics...
+[2025-06-01T01:10:53.548Z] Cloning qrcodegenerator...
+[2025-06-01T01:10:53.690Z] Cloning rockPaperScissorsSpockLizard...
+[2025-06-01T01:10:53.827Z] Cloning room_booking_system...
+[2025-06-01T01:10:53.956Z] Cloning school_management_system...
+[2025-06-01T01:10:54.117Z] Cloning Selenium...
+[2025-06-01T01:10:55.379Z] Cloning ShopmeEcommerce...
+[2025-06-01T01:10:56.850Z] Cloning Simple-Quiz-App...
+[2025-06-01T01:10:57.003Z] Cloning sketch_py...
+[2025-06-01T01:10:57.167Z] Cloning snake_game_py...
+[2025-06-01T01:10:57.307Z] Cloning spring-jwt...
+[2025-06-01T01:10:57.453Z] Cloning SpringAnnotations...
+[2025-06-01T01:10:57.594Z] Cloning springbootintro...
+[2025-06-01T01:10:57.801Z] Cloning SpringBootPractice...
+[2025-06-01T01:10:57.970Z] Cloning SpringMvc...
+[2025-06-01T01:10:58.133Z] Cloning sql_workspace...
+[2025-06-01T01:10:58.302Z] Cloning SudokuSolver...
+[2025-06-01T01:10:58.721Z] Cloning Swiss-Flag...
+[2025-06-01T01:10:58.882Z] Cloning tumblr-home-page...
+[2025-06-01T01:10:59.046Z] Cloning Twitter-main-page...
+[2025-06-01T01:10:59.191Z] Cloning ZimitTree-ToscaExercise...
+[2025-06-01T01:10:59.330Z] Analyzing repository at: /tmp/repo--team_calculater_-aBu0wg
+[2025-06-01T01:10:59.335Z] Detected framework: Pytorch
+[2025-06-01T01:10:59.335Z] Detected framework: Tensorflow
+[2025-06-01T01:10:59.336Z] Detected framework: Keras
+[2025-06-01T01:10:59.336Z] Detected framework: Theano
+[2025-06-01T01:10:59.336Z] Detected framework: MXNet
+[2025-06-01T01:10:59.336Z] Detected framework: CNTK
+[2025-06-01T01:10:59.336Z] Detected framework: PaddlePaddle
+[2025-06-01T01:10:59.336Z] Detected framework: Scikit-learn
+[2025-06-01T01:10:59.336Z] Detected framework: Numpy
+[2025-06-01T01:10:59.336Z] Detected framework: Pandas
+[2025-06-01T01:10:59.336Z] Detected framework: Matplotlib
+[2025-06-01T01:10:59.336Z] Detected framework: Seaborn
+[2025-06-01T01:10:59.336Z] Detected framework: Bokeh
+[2025-06-01T01:10:59.336Z] Detected framework: Plotly
+[2025-06-01T01:10:59.336Z] Detected framework: Dash
+[2025-06-01T01:10:59.336Z] Detected framework: Streamlit
+[2025-06-01T01:10:59.336Z] Detected framework: FastAPI
+[2025-06-01T01:10:59.336Z] Detected framework: Flask
+[2025-06-01T01:10:59.336Z] Detected framework: Django
+[2025-06-01T01:10:59.336Z] Detected framework: Pyramid
+[2025-06-01T01:10:59.336Z] Detected framework: Tornado
+[2025-06-01T01:10:59.336Z] Detected framework: Bottle
+[2025-06-01T01:10:59.336Z] Detected framework: CherryPy
+[2025-06-01T01:10:59.336Z] Detected framework: Falcon
+[2025-06-01T01:10:59.336Z] Detected framework: Sanic
+[2025-06-01T01:10:59.337Z] Detected framework: Hug
+[2025-06-01T01:10:59.343Z] Commit history: 14 commits, First: Wed May 07 2025 12:36:09 GMT+0000 (Coordinated Universal Time), Last: Wed May 07 2025 12:50:02 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:10:59.344Z] Analyzing repository at: /tmp/repo-advancedjavabatch134135-IZK95L
+[2025-06-01T01:10:59.348Z] Detected framework: Spring Boot
+[2025-06-01T01:10:59.356Z] Commit history: 10 commits, First: Fri Mar 24 2023 05:50:26 GMT+0000 (Coordinated Universal Time), Last: Wed Oct 25 2023 22:14:45 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:10:59.356Z] Analyzing repository at: /tmp/repo-algorithms-1iGMeU
+[2025-06-01T01:10:59.365Z] Commit history: 6 commits, First: Tue Jul 09 2024 14:20:47 GMT+0000 (Coordinated Universal Time), Last: Wed Jul 10 2024 08:08:32 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:10:59.366Z] Analyzing repository at: /tmp/repo-Batch132-Jutfg9
+[2025-06-01T01:10:59.382Z] Detected framework: Spring Boot
+[2025-06-01T01:10:59.385Z] Detected framework: Burp Suite
+[2025-06-01T01:10:59.385Z] Detected framework: Veracode
+[2025-06-01T01:10:59.385Z] Detected framework: JUnit
+[2025-06-01T01:10:59.392Z] Commit history: 20 commits, First: Mon Jan 16 2023 20:53:49 GMT+0000 (Coordinated Universal Time), Last: Thu Mar 09 2023 09:30:49 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:10:59.392Z] Analyzing repository at: /tmp/repo-batch44Api-0303G4
+[2025-06-01T01:10:59.402Z] Commit history: 7 commits, First: Wed Mar 09 2022 11:39:53 GMT+0000 (Coordinated Universal Time), Last: Fri Mar 18 2022 15:55:12 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:10:59.402Z] Analyzing repository at: /tmp/repo-Best-README-Template-iwQhmC
+[2025-06-01T01:10:59.411Z] Commit history: 22 commits, First: Mon Aug 24 2020 17:53:00 GMT+0000 (Coordinated Universal Time), Last: Thu Feb 17 2022 02:11:54 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:10:59.411Z] Analyzing repository at: /tmp/repo-Book-AI-Study-Tool-4ZQ5kX
+[2025-06-01T01:10:59.414Z] Detected framework: Pytorch
+[2025-06-01T01:10:59.414Z] Detected framework: Tensorflow
+[2025-06-01T01:10:59.414Z] Detected framework: Keras
+[2025-06-01T01:10:59.414Z] Detected framework: Theano
+[2025-06-01T01:10:59.414Z] Detected framework: MXNet
+[2025-06-01T01:10:59.415Z] Detected framework: CNTK
+[2025-06-01T01:10:59.415Z] Detected framework: PaddlePaddle
+[2025-06-01T01:10:59.415Z] Detected framework: Scikit-learn
+[2025-06-01T01:10:59.415Z] Detected framework: Numpy
+[2025-06-01T01:10:59.415Z] Detected framework: Pandas
+[2025-06-01T01:10:59.415Z] Detected framework: Matplotlib
+[2025-06-01T01:10:59.415Z] Detected framework: Seaborn
+[2025-06-01T01:10:59.415Z] Detected framework: Bokeh
+[2025-06-01T01:10:59.415Z] Detected framework: Plotly
+[2025-06-01T01:10:59.415Z] Detected framework: Dash
+[2025-06-01T01:10:59.415Z] Detected framework: Streamlit
+[2025-06-01T01:10:59.415Z] Detected framework: FastAPI
+[2025-06-01T01:10:59.415Z] Detected framework: Flask
+[2025-06-01T01:10:59.415Z] Detected framework: Django
+[2025-06-01T01:10:59.415Z] Detected framework: Pyramid
+[2025-06-01T01:10:59.415Z] Detected framework: Tornado
+[2025-06-01T01:10:59.415Z] Detected framework: Bottle
+[2025-06-01T01:10:59.415Z] Detected framework: CherryPy
+[2025-06-01T01:10:59.415Z] Detected framework: Falcon
+[2025-06-01T01:10:59.415Z] Detected framework: Sanic
+[2025-06-01T01:10:59.415Z] Detected framework: Hug
+[2025-06-01T01:10:59.419Z] Commit history: 2 commits, First: Wed Apr 30 2025 14:52:50 GMT+0000 (Coordinated Universal Time), Last: Wed Apr 30 2025 14:58:33 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:10:59.419Z] Analyzing repository at: /tmp/repo-Chess-Table-JEuFwz
+[2025-06-01T01:10:59.426Z] Commit history: 1 commits, First: Sat May 25 2019 09:34:06 GMT+0000 (Coordinated Universal Time), Last: Sat May 25 2019 09:34:06 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:10:59.427Z] Analyzing repository at: /tmp/repo-COHORT12-YNNOPm
+[2025-06-01T01:10:59.434Z] Detected framework: Pytorch
+[2025-06-01T01:10:59.434Z] Detected framework: Tensorflow
+[2025-06-01T01:10:59.434Z] Detected framework: Keras
+[2025-06-01T01:10:59.434Z] Detected framework: Theano
+[2025-06-01T01:10:59.434Z] Detected framework: MXNet
+[2025-06-01T01:10:59.434Z] Detected framework: CNTK
+[2025-06-01T01:10:59.434Z] Detected framework: PaddlePaddle
+[2025-06-01T01:10:59.434Z] Detected framework: Scikit-learn
+[2025-06-01T01:10:59.434Z] Detected framework: Numpy
+[2025-06-01T01:10:59.434Z] Detected framework: Pandas
+[2025-06-01T01:10:59.434Z] Detected framework: Matplotlib
+[2025-06-01T01:10:59.434Z] Detected framework: Seaborn
+[2025-06-01T01:10:59.434Z] Detected framework: Bokeh
+[2025-06-01T01:10:59.434Z] Detected framework: Plotly
+[2025-06-01T01:10:59.434Z] Detected framework: Dash
+[2025-06-01T01:10:59.435Z] Detected framework: Streamlit
+[2025-06-01T01:10:59.435Z] Detected framework: FastAPI
+[2025-06-01T01:10:59.435Z] Detected framework: Flask
+[2025-06-01T01:10:59.435Z] Detected framework: Django
+[2025-06-01T01:10:59.435Z] Detected framework: Pyramid
+[2025-06-01T01:10:59.435Z] Detected framework: Tornado
+[2025-06-01T01:10:59.435Z] Detected framework: Bottle
+[2025-06-01T01:10:59.435Z] Detected framework: CherryPy
+[2025-06-01T01:10:59.435Z] Detected framework: Falcon
+[2025-06-01T01:10:59.435Z] Detected framework: Sanic
+[2025-06-01T01:10:59.435Z] Detected framework: Hug
+[2025-06-01T01:10:59.439Z] Commit history: 14 commits, First: Tue Mar 04 2025 09:09:17 GMT+0000 (Coordinated Universal Time), Last: Wed May 14 2025 11:52:41 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:10:59.440Z] Analyzing repository at: /tmp/repo-com.Hotel_Team06-QuknDT
+[2025-06-01T01:10:59.443Z] Detected framework: Spring Boot
+[2025-06-01T01:10:59.445Z] Detected framework: Burp Suite
+[2025-06-01T01:10:59.445Z] Detected framework: Veracode
+[2025-06-01T01:10:59.445Z] Detected framework: JUnit
+[2025-06-01T01:10:59.452Z] Commit history: 47 commits, First: Tue Feb 15 2022 23:18:43 GMT+0000 (Coordinated Universal Time), Last: Tue Feb 22 2022 16:26:37 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:10:59.452Z] Analyzing repository at: /tmp/repo-Coursera_CSS3_Week2_Assignment-csarld
+[2025-06-01T01:10:59.453Z] Detected framework: Backbone.js
+[2025-06-01T01:10:59.461Z] Commit history: 1 commits, First: Sun Jun 02 2019 14:43:27 GMT+0000 (Coordinated Universal Time), Last: Sun Jun 02 2019 14:43:27 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:10:59.461Z] Analyzing repository at: /tmp/repo-CSharpProject-4NaA2n
+[2025-06-01T01:10:59.471Z] Commit history: 3 commits, First: Fri Oct 20 2023 10:22:21 GMT+0000 (Coordinated Universal Time), Last: Fri Oct 20 2023 10:24:31 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:10:59.471Z] Analyzing repository at: /tmp/repo-designPattern-dz0yJ8
+[2025-06-01T01:10:59.481Z] Commit history: 6 commits, First: Fri May 03 2024 19:58:50 GMT+0000 (Coordinated Universal Time), Last: Wed Jul 10 2024 14:36:50 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:10:59.481Z] Analyzing repository at: /tmp/repo-git-workshop-FtBoiR
+[2025-06-01T01:10:59.488Z] Commit history: 2 commits, First: Tue May 13 2025 11:28:06 GMT+0000 (Coordinated Universal Time), Last: Tue May 13 2025 11:33:15 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:10:59.488Z] Analyzing repository at: /tmp/repo-git-workshop-2-5k9tHp
+[2025-06-01T01:10:59.495Z] Commit history: 7 commits, First: Tue May 13 2025 11:37:29 GMT+0000 (Coordinated Universal Time), Last: Tue May 13 2025 11:49:13 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:10:59.495Z] Analyzing repository at: /tmp/repo-google-play-store-main-page-7oYLhI
+[2025-06-01T01:10:59.496Z] Detected framework: Backbone.js
+[2025-06-01T01:10:59.503Z] Commit history: 2 commits, First: Sat Dec 08 2018 11:24:16 GMT+0000 (Coordinated Universal Time), Last: Sat Dec 08 2018 11:29:46 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:10:59.503Z] Analyzing repository at: /tmp/repo-hibernateLesson-sXbZgn
+[2025-06-01T01:10:59.505Z] Detected framework: Spring Boot
+[2025-06-01T01:10:59.507Z] Detected framework: Burp Suite
+[2025-06-01T01:10:59.507Z] Detected framework: Veracode
+[2025-06-01T01:10:59.507Z] Detected framework: JUnit
+[2025-06-01T01:10:59.513Z] Commit history: 8 commits, First: Thu Mar 07 2024 22:25:51 GMT+0000 (Coordinated Universal Time), Last: Thu Mar 14 2024 06:20:59 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:10:59.513Z] Analyzing repository at: /tmp/repo-Homework-from-week7-C7WzYG
+[2025-06-01T01:10:59.513Z] Detected framework: Backbone.js
+[2025-06-01T01:10:59.520Z] Commit history: 1 commits, First: Sat May 25 2019 09:37:38 GMT+0000 (Coordinated Universal Time), Last: Sat May 25 2019 09:37:38 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:10:59.520Z] Analyzing repository at: /tmp/repo-homework-from-week8-5OEoLh
+[2025-06-01T01:10:59.528Z] Commit history: 1 commits, First: Sat May 25 2019 09:42:54 GMT+0000 (Coordinated Universal Time), Last: Sat May 25 2019 09:42:54 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:10:59.528Z] Analyzing repository at: /tmp/repo-homework-from-week9-1jUNkq
+[2025-06-01T01:10:59.528Z] Detected framework: Backbone.js
+[2025-06-01T01:10:59.535Z] Commit history: 1 commits, First: Sat May 25 2019 09:48:07 GMT+0000 (Coordinated Universal Time), Last: Sat May 25 2019 09:48:07 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:10:59.535Z] Analyzing repository at: /tmp/repo-hrm-smoke-test-suite-jTqZdS
+[2025-06-01T01:10:59.536Z] Detected framework: Spring Boot
+[2025-06-01T01:10:59.537Z] Detected framework: Burp Suite
+[2025-06-01T01:10:59.537Z] Detected framework: Veracode
+[2025-06-01T01:10:59.538Z] Detected framework: JUnit
+[2025-06-01T01:10:59.543Z] Commit history: 2 commits, First: Thu Mar 21 2024 16:16:49 GMT+0000 (Coordinated Universal Time), Last: Thu Mar 21 2024 16:18:08 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:10:59.543Z] Analyzing repository at: /tmp/repo-IntroToDI-WU3CgT
+[2025-06-01T01:10:59.551Z] Commit history: 2 commits, First: Fri Mar 15 2024 22:40:22 GMT+0000 (Coordinated Universal Time), Last: Fri Mar 15 2024 23:49:14 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:10:59.551Z] Analyzing repository at: /tmp/repo-IntroToSpring-Z7Ga62
+[2025-06-01T01:10:59.552Z] Detected framework: Spring Boot
+[2025-06-01T01:10:59.553Z] Detected framework: Burp Suite
+[2025-06-01T01:10:59.553Z] Detected framework: Veracode
+[2025-06-01T01:10:59.554Z] Detected framework: JUnit
+[2025-06-01T01:10:59.559Z] Commit history: 3 commits, First: Sat Mar 16 2024 14:15:34 GMT+0000 (Coordinated Universal Time), Last: Sun Mar 24 2024 12:41:03 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:10:59.559Z] Analyzing repository at: /tmp/repo-JavaCertificationScratchBook-tVSNds
+[2025-06-01T01:10:59.573Z] Commit history: 11 commits, First: Fri Nov 17 2023 14:12:50 GMT+0000 (Coordinated Universal Time), Last: Fri Jan 05 2024 00:02:58 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:10:59.573Z] Analyzing repository at: /tmp/repo-javaCrawling-EjnYEK
+[2025-06-01T01:10:59.574Z] Detected framework: Spring Boot
+[2025-06-01T01:10:59.575Z] Detected framework: Android
+[2025-06-01T01:10:59.575Z] Detected framework: Ansible
+[2025-06-01T01:10:59.575Z] Detected framework: Kubernetes
+[2025-06-01T01:10:59.575Z] Detected framework: Docker Compose
+[2025-06-01T01:10:59.575Z] Detected framework: Argo CD
+[2025-06-01T01:10:59.575Z] Detected framework: Flux CD
+[2025-06-01T01:10:59.576Z] Detected framework: CloudFormation
+[2025-06-01T01:10:59.576Z] Detected framework: JUnit
+[2025-06-01T01:10:59.576Z] Detected framework: Artillery
+[2025-06-01T01:10:59.581Z] Commit history: 1 commits, First: Wed May 11 2022 08:11:48 GMT+0000 (Coordinated Universal Time), Last: Wed May 11 2022 08:11:48 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:10:59.581Z] Analyzing repository at: /tmp/repo-JavaGameMakingTutorial-iwWD6u
+[2025-06-01T01:10:59.589Z] Commit history: 4 commits, First: Sat Jan 01 2022 22:38:56 GMT+0000 (Coordinated Universal Time), Last: Mon Jan 03 2022 11:51:38 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:10:59.589Z] Analyzing repository at: /tmp/repo-Java_Workshop-VHgGuZ
+[2025-06-01T01:10:59.611Z] Commit history: 22 commits, First: Fri Dec 03 2021 21:29:54 GMT+0000 (Coordinated Universal Time), Last: Wed Jan 19 2022 22:34:10 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:10:59.612Z] Analyzing repository at: /tmp/repo-jsonFileCreation-Z1HwR9
+[2025-06-01T01:10:59.613Z] Detected framework: CloudFormation
+[2025-06-01T01:10:59.614Z] Detected framework: Azure Resource Manager
+[2025-06-01T01:10:59.614Z] Detected framework: Insomnia
+[2025-06-01T01:10:59.615Z] Detected framework: Pytorch
+[2025-06-01T01:10:59.615Z] Detected framework: Tensorflow
+[2025-06-01T01:10:59.615Z] Detected framework: Keras
+[2025-06-01T01:10:59.615Z] Detected framework: Theano
+[2025-06-01T01:10:59.615Z] Detected framework: MXNet
+[2025-06-01T01:10:59.615Z] Detected framework: CNTK
+[2025-06-01T01:10:59.615Z] Detected framework: PaddlePaddle
+[2025-06-01T01:10:59.615Z] Detected framework: Scikit-learn
+[2025-06-01T01:10:59.615Z] Detected framework: Numpy
+[2025-06-01T01:10:59.615Z] Detected framework: Pandas
+[2025-06-01T01:10:59.615Z] Detected framework: Matplotlib
+[2025-06-01T01:10:59.615Z] Detected framework: Seaborn
+[2025-06-01T01:10:59.615Z] Detected framework: Bokeh
+[2025-06-01T01:10:59.615Z] Detected framework: Plotly
+[2025-06-01T01:10:59.615Z] Detected framework: Dash
+[2025-06-01T01:10:59.615Z] Detected framework: Streamlit
+[2025-06-01T01:10:59.615Z] Detected framework: FastAPI
+[2025-06-01T01:10:59.615Z] Detected framework: Flask
+[2025-06-01T01:10:59.616Z] Detected framework: Django
+[2025-06-01T01:10:59.616Z] Detected framework: Pyramid
+[2025-06-01T01:10:59.616Z] Detected framework: Tornado
+[2025-06-01T01:10:59.616Z] Detected framework: Bottle
+[2025-06-01T01:10:59.616Z] Detected framework: CherryPy
+[2025-06-01T01:10:59.616Z] Detected framework: Falcon
+[2025-06-01T01:10:59.616Z] Detected framework: Sanic
+[2025-06-01T01:10:59.616Z] Detected framework: Hug
+[2025-06-01T01:10:59.620Z] Commit history: 1 commits, First: Tue Jan 03 2023 12:04:42 GMT+0000 (Coordinated Universal Time), Last: Tue Jan 03 2023 12:04:42 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:10:59.620Z] Analyzing repository at: /tmp/repo-Lambda-wJvcI5
+[2025-06-01T01:10:59.628Z] Commit history: 8 commits, First: Sat Nov 27 2021 18:15:49 GMT+0000 (Coordinated Universal Time), Last: Thu Dec 30 2021 21:40:10 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:10:59.628Z] Analyzing repository at: /tmp/repo-medunnaTeam90-IKTHPE
+[2025-06-01T01:10:59.633Z] Detected framework: Spring Boot
+[2025-06-01T01:10:59.634Z] Detected framework: Burp Suite
+[2025-06-01T01:10:59.634Z] Detected framework: Veracode
+[2025-06-01T01:10:59.634Z] Detected framework: JUnit
+[2025-06-01T01:10:59.641Z] Commit history: 104 commits, First: Tue Apr 12 2022 14:42:23 GMT+0000 (Coordinated Universal Time), Last: Wed May 04 2022 10:56:38 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:10:59.642Z] Analyzing repository at: /tmp/repo-muratkutlutuna-EcEF0x
+[2025-06-01T01:10:59.853Z] Detected framework: React
+[2025-06-01T01:10:59.853Z] Detected framework: Create React App
+[2025-06-01T01:10:59.853Z] Detected framework: Node.js
+[2025-06-01T01:10:59.854Z] Detected framework: React Native
+[2025-06-01T01:10:59.855Z] Detected framework: CloudFormation
+[2025-06-01T01:10:59.855Z] Detected framework: Azure Resource Manager
+[2025-06-01T01:10:59.855Z] Detected framework: Insomnia
+[2025-06-01T01:10:59.855Z] Detected framework: k6
+[2025-06-01T01:10:59.856Z] Detected framework: NW.js
+[2025-06-01T01:10:59.862Z] Commit history: 20 commits, First: Tue May 13 2025 11:15:29 GMT+0000 (Coordinated Universal Time), Last: Sat May 31 2025 00:58:02 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:10:59.862Z] Analyzing repository at: /tmp/repo-MvcPractice1-M0Bu7M
+[2025-06-01T01:10:59.864Z] Detected framework: Spring Boot
+[2025-06-01T01:10:59.866Z] Detected framework: Burp Suite
+[2025-06-01T01:10:59.866Z] Detected framework: Veracode
+[2025-06-01T01:10:59.867Z] Detected framework: JUnit
+[2025-06-01T01:10:59.873Z] Commit history: 1 commits, First: Fri Mar 29 2024 07:03:28 GMT+0000 (Coordinated Universal Time), Last: Fri Mar 29 2024 07:03:28 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:10:59.873Z] Analyzing repository at: /tmp/repo-MyBasicSite-0aEKZA
+[2025-06-01T01:10:59.882Z] Commit history: 2 commits, First: Sat May 25 2019 09:19:11 GMT+0000 (Coordinated Universal Time), Last: Sat May 25 2019 09:25:44 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:10:59.882Z] Analyzing repository at: /tmp/repo-my_python_project-43BDn1
+[2025-06-01T01:10:59.885Z] Detected framework: Pytorch
+[2025-06-01T01:10:59.885Z] Detected framework: Tensorflow
+[2025-06-01T01:10:59.885Z] Detected framework: Keras
+[2025-06-01T01:10:59.885Z] Detected framework: Theano
+[2025-06-01T01:10:59.885Z] Detected framework: MXNet
+[2025-06-01T01:10:59.885Z] Detected framework: CNTK
+[2025-06-01T01:10:59.885Z] Detected framework: PaddlePaddle
+[2025-06-01T01:10:59.885Z] Detected framework: Scikit-learn
+[2025-06-01T01:10:59.885Z] Detected framework: Numpy
+[2025-06-01T01:10:59.885Z] Detected framework: Pandas
+[2025-06-01T01:10:59.885Z] Detected framework: Matplotlib
+[2025-06-01T01:10:59.885Z] Detected framework: Seaborn
+[2025-06-01T01:10:59.885Z] Detected framework: Bokeh
+[2025-06-01T01:10:59.885Z] Detected framework: Plotly
+[2025-06-01T01:10:59.885Z] Detected framework: Dash
+[2025-06-01T01:10:59.886Z] Detected framework: Streamlit
+[2025-06-01T01:10:59.886Z] Detected framework: FastAPI
+[2025-06-01T01:10:59.886Z] Detected framework: Flask
+[2025-06-01T01:10:59.886Z] Detected framework: Django
+[2025-06-01T01:10:59.886Z] Detected framework: Pyramid
+[2025-06-01T01:10:59.886Z] Detected framework: Tornado
+[2025-06-01T01:10:59.886Z] Detected framework: Bottle
+[2025-06-01T01:10:59.886Z] Detected framework: CherryPy
+[2025-06-01T01:10:59.886Z] Detected framework: Falcon
+[2025-06-01T01:10:59.886Z] Detected framework: Sanic
+[2025-06-01T01:10:59.886Z] Detected framework: Hug
+[2025-06-01T01:10:59.890Z] Commit history: 10 commits, First: Thu May 22 2025 15:03:56 GMT+0000 (Coordinated Universal Time), Last: Fri May 23 2025 08:54:56 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:10:59.890Z] Analyzing repository at: /tmp/repo-python_basics-Fnplye
+[2025-06-01T01:10:59.908Z] Commit history: 17 commits, First: Mon Jun 06 2022 10:18:44 GMT+0000 (Coordinated Universal Time), Last: Sat Jan 14 2023 21:17:43 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:10:59.908Z] Analyzing repository at: /tmp/repo-qrcodegenerator-p8JVhc
+[2025-06-01T01:10:59.917Z] Commit history: 3 commits, First: Tue Feb 25 2025 13:43:44 GMT+0000 (Coordinated Universal Time), Last: Tue Apr 15 2025 10:35:12 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:10:59.917Z] Analyzing repository at: /tmp/repo-rockPaperScissorsSpockLizard-gIvlQI
+[2025-06-01T01:10:59.925Z] Commit history: 1 commits, First: Tue Apr 19 2022 11:23:02 GMT+0000 (Coordinated Universal Time), Last: Tue Apr 19 2022 11:23:02 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:10:59.925Z] Analyzing repository at: /tmp/repo-room_booking_system-IOfR2j
+[2025-06-01T01:10:59.934Z] Commit history: 3 commits, First: Thu Apr 10 2025 14:33:05 GMT+0000 (Coordinated Universal Time), Last: Thu Apr 10 2025 18:24:03 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:10:59.934Z] Analyzing repository at: /tmp/repo-school_management_system-9oXlw8
+[2025-06-01T01:10:59.936Z] Detected framework: Spring Boot
+[2025-06-01T01:10:59.937Z] Detected framework: Burp Suite
+[2025-06-01T01:10:59.938Z] Detected framework: Veracode
+[2025-06-01T01:10:59.938Z] Detected framework: JUnit
+[2025-06-01T01:10:59.943Z] Commit history: 11 commits, First: Mon Aug 28 2023 17:32:43 GMT+0000 (Coordinated Universal Time), Last: Mon Oct 14 2024 12:52:20 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:10:59.944Z] Analyzing repository at: /tmp/repo-Selenium-3GaVxo
+[2025-06-01T01:11:00.000Z] Commit history: 20 commits, First: Mon Jan 24 2022 20:52:08 GMT+0000 (Coordinated Universal Time), Last: Tue Feb 15 2022 20:10:07 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:11:00.000Z] Analyzing repository at: /tmp/repo-ShopmeEcommerce-aHca0I
+[2025-06-01T01:11:00.008Z] Commit history: 1 commits, First: Thu Dec 14 2023 08:00:01 GMT+0000 (Coordinated Universal Time), Last: Thu Dec 14 2023 08:00:01 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:11:00.008Z] Analyzing repository at: /tmp/repo-Simple-Quiz-App-lIMkCD
+[2025-06-01T01:11:00.009Z] Detected framework: Backbone.js
+[2025-06-01T01:11:00.017Z] Commit history: 8 commits, First: Thu May 08 2025 12:04:03 GMT+0000 (Coordinated Universal Time), Last: Fri May 09 2025 12:21:44 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:11:00.017Z] Analyzing repository at: /tmp/repo-sketch_py-BgCvbr
+[2025-06-01T01:11:00.022Z] Detected framework: Pytorch
+[2025-06-01T01:11:00.022Z] Detected framework: Tensorflow
+[2025-06-01T01:11:00.022Z] Detected framework: Keras
+[2025-06-01T01:11:00.022Z] Detected framework: Theano
+[2025-06-01T01:11:00.022Z] Detected framework: MXNet
+[2025-06-01T01:11:00.022Z] Detected framework: CNTK
+[2025-06-01T01:11:00.022Z] Detected framework: PaddlePaddle
+[2025-06-01T01:11:00.022Z] Detected framework: Scikit-learn
+[2025-06-01T01:11:00.022Z] Detected framework: Numpy
+[2025-06-01T01:11:00.022Z] Detected framework: Pandas
+[2025-06-01T01:11:00.022Z] Detected framework: Matplotlib
+[2025-06-01T01:11:00.022Z] Detected framework: Seaborn
+[2025-06-01T01:11:00.022Z] Detected framework: Bokeh
+[2025-06-01T01:11:00.022Z] Detected framework: Plotly
+[2025-06-01T01:11:00.022Z] Detected framework: Dash
+[2025-06-01T01:11:00.023Z] Detected framework: Streamlit
+[2025-06-01T01:11:00.023Z] Detected framework: FastAPI
+[2025-06-01T01:11:00.023Z] Detected framework: Flask
+[2025-06-01T01:11:00.023Z] Detected framework: Django
+[2025-06-01T01:11:00.023Z] Detected framework: Pyramid
+[2025-06-01T01:11:00.023Z] Detected framework: Tornado
+[2025-06-01T01:11:00.023Z] Detected framework: Bottle
+[2025-06-01T01:11:00.023Z] Detected framework: CherryPy
+[2025-06-01T01:11:00.023Z] Detected framework: Falcon
+[2025-06-01T01:11:00.023Z] Detected framework: Sanic
+[2025-06-01T01:11:00.023Z] Detected framework: Hug
+[2025-06-01T01:11:00.027Z] Commit history: 2 commits, First: Thu Feb 27 2025 09:20:59 GMT+0000 (Coordinated Universal Time), Last: Thu Feb 27 2025 09:22:13 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:11:00.027Z] Analyzing repository at: /tmp/repo-snake_game_py-2Ui9x1
+[2025-06-01T01:11:00.030Z] Detected framework: Pytorch
+[2025-06-01T01:11:00.030Z] Detected framework: Tensorflow
+[2025-06-01T01:11:00.030Z] Detected framework: Keras
+[2025-06-01T01:11:00.030Z] Detected framework: Theano
+[2025-06-01T01:11:00.030Z] Detected framework: MXNet
+[2025-06-01T01:11:00.030Z] Detected framework: CNTK
+[2025-06-01T01:11:00.030Z] Detected framework: PaddlePaddle
+[2025-06-01T01:11:00.030Z] Detected framework: Scikit-learn
+[2025-06-01T01:11:00.030Z] Detected framework: Numpy
+[2025-06-01T01:11:00.030Z] Detected framework: Pandas
+[2025-06-01T01:11:00.030Z] Detected framework: Matplotlib
+[2025-06-01T01:11:00.030Z] Detected framework: Seaborn
+[2025-06-01T01:11:00.030Z] Detected framework: Bokeh
+[2025-06-01T01:11:00.030Z] Detected framework: Plotly
+[2025-06-01T01:11:00.030Z] Detected framework: Dash
+[2025-06-01T01:11:00.030Z] Detected framework: Streamlit
+[2025-06-01T01:11:00.030Z] Detected framework: FastAPI
+[2025-06-01T01:11:00.030Z] Detected framework: Flask
+[2025-06-01T01:11:00.031Z] Detected framework: Django
+[2025-06-01T01:11:00.031Z] Detected framework: Pyramid
+[2025-06-01T01:11:00.031Z] Detected framework: Tornado
+[2025-06-01T01:11:00.031Z] Detected framework: Bottle
+[2025-06-01T01:11:00.031Z] Detected framework: CherryPy
+[2025-06-01T01:11:00.031Z] Detected framework: Falcon
+[2025-06-01T01:11:00.031Z] Detected framework: Sanic
+[2025-06-01T01:11:00.031Z] Detected framework: Hug
+[2025-06-01T01:11:00.034Z] Commit history: 3 commits, First: Wed Feb 26 2025 13:54:49 GMT+0000 (Coordinated Universal Time), Last: Wed Feb 26 2025 14:07:07 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:11:00.035Z] Analyzing repository at: /tmp/repo-spring-jwt-efU4Sf
+[2025-06-01T01:11:00.036Z] Detected framework: Spring Boot
+[2025-06-01T01:11:00.037Z] Detected framework: Burp Suite
+[2025-06-01T01:11:00.038Z] Detected framework: Veracode
+[2025-06-01T01:11:00.038Z] Detected framework: JUnit
+[2025-06-01T01:11:00.043Z] Commit history: 4 commits, First: Thu Apr 25 2024 09:46:15 GMT+0000 (Coordinated Universal Time), Last: Fri May 03 2024 14:18:41 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:11:00.043Z] Analyzing repository at: /tmp/repo-SpringAnnotations-sfD3iy
+[2025-06-01T01:11:00.044Z] Detected framework: Spring Boot
+[2025-06-01T01:11:00.046Z] Detected framework: Burp Suite
+[2025-06-01T01:11:00.046Z] Detected framework: Veracode
+[2025-06-01T01:11:00.046Z] Detected framework: JUnit
+[2025-06-01T01:11:00.051Z] Commit history: 1 commits, First: Mon Mar 18 2024 12:32:45 GMT+0000 (Coordinated Universal Time), Last: Mon Mar 18 2024 12:32:45 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:11:00.051Z] Analyzing repository at: /tmp/repo-springbootintro-4k5aDP
+[2025-06-01T01:11:00.053Z] Detected framework: Spring Boot
+[2025-06-01T01:11:00.055Z] Detected framework: Burp Suite
+[2025-06-01T01:11:00.056Z] Detected framework: Veracode
+[2025-06-01T01:11:00.056Z] Detected framework: JUnit
+[2025-06-01T01:11:00.061Z] Commit history: 12 commits, First: Sat Mar 30 2024 07:52:00 GMT+0000 (Coordinated Universal Time), Last: Wed Jul 31 2024 09:23:18 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:11:00.061Z] Analyzing repository at: /tmp/repo-SpringBootPractice-AjElYi
+[2025-06-01T01:11:00.062Z] Detected framework: Spring Boot
+[2025-06-01T01:11:00.064Z] Detected framework: Burp Suite
+[2025-06-01T01:11:00.064Z] Detected framework: Veracode
+[2025-06-01T01:11:00.064Z] Detected framework: JUnit
+[2025-06-01T01:11:00.069Z] Commit history: 2 commits, First: Tue Apr 16 2024 11:02:39 GMT+0000 (Coordinated Universal Time), Last: Fri May 03 2024 19:23:19 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:11:00.069Z] Analyzing repository at: /tmp/repo-SpringMvc-t6Zyuo
+[2025-06-01T01:11:00.070Z] Detected framework: Spring Boot
+[2025-06-01T01:11:00.072Z] Detected framework: Burp Suite
+[2025-06-01T01:11:00.072Z] Detected framework: Veracode
+[2025-06-01T01:11:00.072Z] Detected framework: JUnit
+[2025-06-01T01:11:00.077Z] Commit history: 3 commits, First: Mon Mar 25 2024 06:11:09 GMT+0000 (Coordinated Universal Time), Last: Fri Mar 29 2024 04:23:29 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:11:00.077Z] Analyzing repository at: /tmp/repo-sql_workspace-5dODdv
+[2025-06-01T01:11:00.087Z] Commit history: 3 commits, First: Thu Jan 06 2022 21:21:07 GMT+0000 (Coordinated Universal Time), Last: Thu Jan 13 2022 15:54:35 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:11:00.087Z] Analyzing repository at: /tmp/repo-SudokuSolver-gvRhpz
+[2025-06-01T01:11:00.096Z] Commit history: 10 commits, First: Sat Nov 27 2021 18:15:49 GMT+0000 (Coordinated Universal Time), Last: Thu Dec 30 2021 22:37:32 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:11:00.096Z] Analyzing repository at: /tmp/repo-Swiss-Flag-y0LiJe
+[2025-06-01T01:11:00.103Z] Commit history: 2 commits, First: Sat May 25 2019 09:31:38 GMT+0000 (Coordinated Universal Time), Last: Sat May 25 2019 09:32:02 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:11:00.103Z] Analyzing repository at: /tmp/repo-tumblr-home-page-W8TLan
+[2025-06-01T01:11:00.104Z] Detected framework: Backbone.js
+[2025-06-01T01:11:00.110Z] Commit history: 8 commits, First: Mon Dec 10 2018 22:51:57 GMT+0000 (Coordinated Universal Time), Last: Thu Dec 20 2018 10:28:48 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:11:00.111Z] Analyzing repository at: /tmp/repo-Twitter-main-page-7o6O7i
+[2025-06-01T01:11:00.111Z] Detected framework: Backbone.js
+[2025-06-01T01:11:00.118Z] Commit history: 2 commits, First: Sat Dec 08 2018 11:11:23 GMT+0000 (Coordinated Universal Time), Last: Sat Dec 08 2018 11:16:30 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:11:00.118Z] Analyzing repository at: /tmp/repo-ZimitTree-ToscaExercise-BjRXoo
+[2025-06-01T01:11:00.125Z] Commit history: 2 commits, First: Wed Oct 25 2023 08:37:41 GMT+0000 (Coordinated Universal Time), Last: Wed Oct 25 2023 08:37:42 GMT+0000 (Coordinated Universal Time)
+[2025-06-01T01:11:00.130Z] ERROR: Error in main:
+[2025-06-01T01:11:00.130Z] ERROR: Error: The OPENAI_API_KEY environment variable is missing or empty; either provide it, or instantiate the OpenAI client with an apiKey option, like new OpenAI({ apiKey: 'My API Key' }).
+    at new OpenAI (file:///home/runner/work/muratkutlutuna/muratkutlutuna/node_modules/openai/index.mjs:47:19)
+    at ChatOpenAI._getClientOptions (file:///home/runner/work/muratkutlutuna/muratkutlutuna/node_modules/@langchain/openai/dist/chat_models.js:2395:27)
+    at ChatOpenAI.completionWithRetry (file:///home/runner/work/muratkutlutuna/muratkutlutuna/node_modules/@langchain/openai/dist/chat_models.js:2331:37)
+    at ChatOpenAI._generate (file:///home/runner/work/muratkutlutuna/muratkutlutuna/node_modules/@langchain/openai/dist/chat_models.js:2161:35)
+    at file:///home/runner/work/muratkutlutuna/muratkutlutuna/node_modules/@langchain/core/dist/language_models/chat_models.js:250:96
+    at Array.map (<anonymous>)
+    at ChatOpenAI._generateUncached (file:///home/runner/work/muratkutlutuna/muratkutlutuna/node_modules/@langchain/core/dist/language_models/chat_models.js:250:67)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async ChatOpenAI.call (file:///home/runner/work/muratkutlutuna/muratkutlutuna/node_modules/@langchain/core/dist/language_models/chat_models.js:477:24)
+    at async generateAssessmentWithLangChain (file:///home/runner/work/muratkutlutuna/muratkutlutuna/analyze-repo.js:104:20)
